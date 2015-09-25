@@ -1,0 +1,9 @@
+---
+en:
+  spree:
+    admin:
+      bulk_discounts:
+        bulk_discount: "Bulk Discount"
+        errors:
+          not_found: "Bulk Discount was not found"
+          please_try_again: "Please try again"

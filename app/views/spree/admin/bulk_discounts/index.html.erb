@@ -1,0 +1,38 @@
+<%= render 'spree/admin/shared/configuration_menu' %>
+
+<% content_for :page_title do %>
+    <%= Spree.t(:bulk_discounts) %>
+<% end %>
+
+<% content_for :page_actions do %>
+    <li>
+      <%= button_link_to Spree.t(:new_bulk_discount), new_object_url, :icon => 'plus' %>
+    </li>
+<% end %>
+
+<% if @bulk_discounts.any? %>
+    <table class="index">
+      <thead>
+        <tr data-hook="rate_header">
+          <th><%= Spree.t(:name) %></th>
+          <th class="actions"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @bulk_discounts.each do |bulk_discount| %>
+            <tr id="<%= spree_dom_id bulk_discount %>" data-hook="discount_row" class="<%= cycle('odd', 'even') %>">
+              <td class="align-center"><%= bulk_discount.name %></td>
+              <td class="actions">
+                <%= link_to_edit bulk_discount, :no_text => true %>
+                <%= link_to_delete bulk_discount, :no_text => true %>
+              </td>
+            </tr>
+        <% end %>
+      </tbody>
+    </table>
+<% else %>
+    <div class="alpha twelve columns no-objects-found">
+      <%= Spree.t(:no_resource_found, resource: I18n.t(:other, scope: 'activerecord.models.spree/bulk_discount')) %>,
+      <%= link_to Spree.t(:add_one), spree.new_admin_bulk_discount_path %>!
+    </div>
+<% end %>

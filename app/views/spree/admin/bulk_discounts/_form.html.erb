@@ -1,0 +1,18 @@
+<div data-hook="admin_tax_rate_form_fields">
+  <div class="alpha twelve columns">
+    <fieldset data-hook="tax_rates" class=" no-border-bottom">
+      <legend align="center"><%= Spree.t(:general_settings) %></legend>
+
+      <div class="alpha omega twelve columns">
+        <div data-hook="name" class="field">
+          <%= f.label :name, Spree.t(:name) %>
+          <%= f.text_field :name, :class => 'fullwidth' %>
+        </div>
+      </div>
+    </fieldset>
+  </div>
+
+  <div class="clear"></div>
+
+  <%= render 'spree/admin/shared/calculator_fields', :f => f %>
+</div>
