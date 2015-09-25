@@ -1,0 +1,5 @@
+example_id                                   | status | run_time        |
+-------------------------------------------- | ------ | --------------- |
+./spec/models/spree/line_item_spec.rb[1:1]   | failed | 1.33 seconds    |
+./spec/models/spree/line_item_spec.rb[1:2:1] | failed | 0.64356 seconds |
+./spec/models/spree/line_item_spec.rb[1:2:2] | failed | 0.61686 seconds |

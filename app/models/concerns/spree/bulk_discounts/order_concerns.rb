@@ -1,5 +1,9 @@
 module Spree
   module BulkDiscounts::OrderConcerns
-    money_methods :bulk_discount_total
+    extend ActiveSupport::Concern
+
+    included do
+      money_methods :bulk_discount_total
+    end
   end
 end

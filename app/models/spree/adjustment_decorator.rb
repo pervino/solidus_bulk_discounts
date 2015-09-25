@@ -1,1 +1,1 @@
-Spree::Adjustment.include Spree::BulkDiscount::AdjustmentConcerns
+Spree::Adjustment.include Spree::BulkDiscounts::AdjustmentConcerns
