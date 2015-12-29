@@ -4,7 +4,7 @@ module Spree
 
     included do
       after_save :update_bulk_discount
-
+      # TODO resolve discounted_amount issue or override to include bulk_discount_total
       prepend(InstanceMethods)
     end
 

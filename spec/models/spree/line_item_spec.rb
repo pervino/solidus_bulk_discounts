@@ -15,7 +15,7 @@ describe Spree::LineItem do
 
     it "on initial create" do
       expect(subject.adjustments.count).to eql 1
-      expect(subject.bulk_discount_total).to eql -10
+      expect(subject.bulk_discount_total).to eql -220
     end
 
     it "when updating the quantity" do
@@ -23,7 +23,7 @@ describe Spree::LineItem do
       subject.save!
       expect(subject.adjustments.count).to eql 1
       expect(subject.discounted_amount).to eql 110.5
-      expect(subject.bulk_discount_total).to eql -19.5
+      expect(subject.bulk_discount_total).to eql -13
     end
   end
 end
