@@ -14,6 +14,7 @@ ENV['RAILS_ENV'] = 'test'
 require File.expand_path('../dummy/config/environment.rb',  __FILE__)
 
 require 'rspec/rails'
+require 'rspec/active_model/mocks'
 
 require 'database_cleaner'
 require 'ffaker'
@@ -56,13 +57,17 @@ RSpec.configure do |config|
     DatabaseCleaner.clean_with :truncation
   end
 
+  # We dont require api authentication
+  config.before do
+    Spree::Api::Config[:requires_authentication] = false
+  end
+
   # Before each spec check if it is a Javascript test and switch between using
   # database transactions or not where necessary.
   config.before :each do |example|
     DatabaseCleaner.strategy = :truncation
     DatabaseCleaner.start
 
-    Spree::Api::Config[:requires_authentication] = true
     Spree::Config.reset
   end
 

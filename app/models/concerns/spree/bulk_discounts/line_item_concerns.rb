@@ -3,7 +3,9 @@ module Spree
     extend ActiveSupport::Concern
 
     included do
-      after_create :update_bulk_discount
+      after_save :update_bulk_discount
+
+      prepend(InstanceMethods)
     end
 
     module InstanceMethods

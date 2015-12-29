@@ -1,4 +1,4 @@
-require "bundler"
+require 'bundler'
 Bundler::GemHelper.install_tasks
 
 require 'rspec/core/rake_task'
@@ -19,4 +19,3 @@ task :test_app do
   ENV['LIB_NAME'] = 'solidus_bulk_discounts'
   Rake::Task['extension:test_app'].invoke
 end
-

@@ -5,6 +5,6 @@ FactoryGirl.define do
 
   factory :bulk_discount, class: Spree::BulkDiscount do
     name 'Standard'
-    association(:calculator, factory: default_bulk_discount_calculator)
+    association(:calculator, factory: :default_bulk_discount_calculator)
   end
 end

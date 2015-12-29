@@ -21,3 +21,5 @@ tmp
 *.a
 mkmf.log
 .idea
+spec/dummy
+spec/examples.txt

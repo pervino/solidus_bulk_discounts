@@ -4,6 +4,8 @@ module Spree
 
     included do
       scope :bulk_discount, -> { where(source_type: 'Spree::BulkDiscount') }
+
+      prepend(InstanceMethods)
     end
 
     module InstanceMethods
