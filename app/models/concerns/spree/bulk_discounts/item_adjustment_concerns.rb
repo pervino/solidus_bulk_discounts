@@ -19,8 +19,6 @@ module Spree
     end
 
     module InstanceMethods
-      # TODO may not need to update at this point since we have bulk discount triggered on save
-      # TODO Test/implement competing promos - may just copy over spree 3.0s adjustable logic
       def update_bulk_discount_adjustment
         @item.bulk_discount_total = item.adjustments.bulk_discount.reload.map do |adjustment|
           adjustment.update!

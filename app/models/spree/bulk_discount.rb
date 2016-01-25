@@ -46,7 +46,7 @@ module Spree
     def create_label(amount)
       label = ""
       label << "Bulk Discount"
-      label << " - #{amount * 100}%"
+      label << " #{amount}"
       label
     end
   end

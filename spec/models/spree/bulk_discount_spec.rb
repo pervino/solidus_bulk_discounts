@@ -2,18 +2,6 @@ require 'spec_helper'
 
 describe Spree::BulkDiscount do
 
-  # it "is invalid with 0 quantity" do
-  #   FactoryGirl.build(:bulk_discount, :break_points => {"0" => BigDecimal('1')}).should_not be_valid
-  # end
-  #
-  # it "is invalid with a rate over 90%" do
-  #   FactoryGirl.build(:bulk_discount, :break_points => {"1" => BigDecimal('0.91')}).should_not be_valid
-  # end
-
-  # it "is invalid with no breakpoints" do
-  #   FactoryGirl.build(:bulk_discount, :break_points => {}).should_not be_valid
-  # end
-
   it "is invalid with no name" do
     FactoryGirl.build(:bulk_discount, name: nil).should_not be_valid
   end
@@ -26,15 +14,8 @@ describe Spree::BulkDiscount do
       line_item.variant.product.bulk_discount = discount
     end
 
-    it "should fetch the correct rate" do
-      expect(discount.getRate(3)).to eq(0)
-      expect(discount.getRate(6)).to eq(0.1)
-      expect(discount.getRate(15)).to eq(0.15)
-      expect(discount.getRate(30)).to eq(0.2)
-    end
-
     it "should compute the correct percentage rate" do
-      expect(discount.compute_amount(line_item)).to eq(-19.5)
+      expect(discount.compute_amount(line_item)).to eq(-13.0)
     end
   end
 
@@ -58,11 +39,6 @@ describe Spree::BulkDiscount do
       end
 
       let(:line_items) { [line_item] }
-
-      it "should apply adjustments for the bulk discount to the line_items" do
-        expect(bulk_discount).to receive(:adjust)
-        Spree::BulkDiscount.adjust(line_items)
-      end
 
       it "should save 10% on 12 items" do
         order.contents.add product.master, 12

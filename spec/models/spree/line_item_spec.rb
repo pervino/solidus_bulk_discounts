@@ -22,7 +22,7 @@ describe Spree::LineItem do
       subject.quantity = 13
       subject.save!
       expect(subject.adjustments.count).to eql 1
-      expect(subject.discounted_amount).to eql 110.5
+      expect(subject.discounted_amount).to eql 117
       expect(subject.bulk_discount_total).to eql -13
     end
   end

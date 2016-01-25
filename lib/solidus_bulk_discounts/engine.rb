@@ -22,7 +22,6 @@ module SolidusBulkDiscounts
       end
 
       Spree::Order.register_update_hook(:persist_bulk_discount_totals)
-      Spree::ItemAdjustments.register_adjustment_hook(:update_bulk_discount_adjustment)
     end
 
     initializer 'spree.promo.register.promotion.calculators' do |app|
