@@ -18,7 +18,7 @@ Gem::Specification.new do |s|
   s.requirements << "none"
 
   s.add_dependency "pg"
-  s.add_dependency "solidus", [">= 1.0.0", "< 1.2.0"]
+  s.add_dependency "solidus", [">= 1.0.0", "< 1.3.0"]
 
   s.add_development_dependency "rspec-rails", "~> 3.2"
   s.add_development_dependency "rspec-activemodel-mocks"
