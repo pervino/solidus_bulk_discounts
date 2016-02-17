@@ -1,0 +1,26 @@
+<div class="calculator-fields row">
+  <div class="field alpha four columns">
+    <% field_name = "#{param_prefix}[calculator_type]" %>
+    <%= label_tag field_name, Spree.t(:calculator) %>
+    <%= select_tag field_name,
+                   options_from_collection_for_select(calculators, :to_s, :description, bulk_discount.calculator.type),
+                   :class => 'type-select select2 fullwidth' %>
+    <% if bulk_discount.calculator.respond_to?(:preferences) %>
+        <span class="warning info"><%= Spree.t(:calculator_settings_warning) %></span>
+    <% end %>
+  </div>
+
+  <% unless bulk_discount.new_record? %>
+      <div class="settings field omega four columns">
+        <% type_name = bulk_discount.calculator.type.demodulize.underscore %>
+        <% if lookup_context.exists?("fields", ["spree/admin/bulk_discounts/calculators/#{type_name}"], true) %>
+            <%= render "spree/admin/bulk_discounts/calculators/#{type_name}/fields",
+                       calculator: bulk_discount.calculator, prefix: param_prefix %>
+        <% else %>
+            <%= render "spree/admin/bulk_discounts/calculators/default_fields",
+                       calculator: bulk_discount.calculator, prefix: param_prefix %>
+        <% end %>
+        <%= hidden_field_tag "#{param_prefix}[calculator_attributes][id]", bulk_discount.calculator.id %>
+      </div>
+  <% end %>
+</div>

@@ -1,0 +1,14 @@
+.tier {
+  position: relative;
+  padding-bottom: 10px;
+}
+
+.tier .remove {
+  position: absolute;
+  left: -15px;
+  top: 10px;
+}
+
+.tier .remove:hover {
+  color: #c60f13;
+}
