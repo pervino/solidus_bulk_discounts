@@ -1,29 +1,3 @@
 # Solidus::Bulk::Discounts
 
-TODO: Write a gem description
-
-## Installation
-
-Add this line to your application's Gemfile:
-
-    gem 'solidus-bulk-discounts'
-
-And then execute:
-
-    $ bundle
-
-Or install it yourself as:
-
-    $ gem install solidus-bulk-discounts
-
-## Usage
-
-TODO: Write usage instructions here
-
-## Contributing
-
-1. Fork it ( https://github.com/[my-github-username]/solidus-bulk-discounts/fork )
-2. Create your feature branch (`git checkout -b my-new-feature`)
-3. Commit your changes (`git commit -am 'Add some feature'`)
-4. Push to the branch (`git push origin my-new-feature`)
-5. Create a new Pull Request
+This is a proof-of-concept and does not integrate into ItemAdjustments for udpating.
