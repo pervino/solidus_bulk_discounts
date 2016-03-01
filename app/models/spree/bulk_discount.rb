@@ -2,7 +2,7 @@ module Spree
   class BulkDiscount < Spree::Base
     acts_as_paranoid
 
-    # Need to deal with adjustments before calculator is destroyed.
+    before_validation :ensure_action_has_calculator
     before_destroy :deals_with_adjustments_for_deleted_source
 
     include Spree::CalculatedAdjustments
@@ -46,6 +46,11 @@ module Spree
     end
 
     private
+
+    def ensure_action_has_calculator
+      return if calculator
+      self.calculator = Calculator::TieredQuantityPercent.new
+    end
 
     def create_label(amount)
       label = ""

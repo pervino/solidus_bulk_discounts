@@ -8,7 +8,7 @@ class ConvertSpreeBdToSolidus < ActiveRecord::Migration
         end
 
         # Create calculator
-        calculator = Spree::Calculator::QuantityTieredPercent.new(preferred_tiers: legacy_tiers)
+        calculator = Spree::Calculator::TieredQuantityPercent.new(preferred_tiers: legacy_tiers)
         calculator.save!
 
         # Set it

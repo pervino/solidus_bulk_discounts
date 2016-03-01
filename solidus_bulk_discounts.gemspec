@@ -8,8 +8,8 @@ Gem::Specification.new do |s|
   s.required_ruby_version = ">= 2.1"
 
   s.author    = "Personal Wine"
-  s.email     = "anthony@personalwine.com"
-  s.homepage  = "http://www.personalwine.com"
+  s.email     = "dev@personalwine.com"
+  s.homepage  = "https://www.personalwine.com"
   s.license   = %q{BSD-3}
 
   s.files       = `git ls-files`.split("\n")
@@ -18,7 +18,9 @@ Gem::Specification.new do |s|
   s.requirements << "none"
 
   s.add_dependency "pg"
-  s.add_dependency "solidus", [">= 1.0.0", "< 1.3.0"]
+  s.add_dependency "solidus_core", [">= 1.2.0", "< 1.3.0"]
+  s.add_dependency "solidus_api", [">= 1.2.0", "< 1.3.0"]
+  s.add_dependency "solidus_backend", [">= 1.2.0", "< 1.3.0"]
 
   s.add_development_dependency "rspec-rails", "~> 3.2"
   s.add_development_dependency "rspec-activemodel-mocks"

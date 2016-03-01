@@ -20,12 +20,13 @@ module SolidusBulkDiscounts
           Rails.configuration.cache_classes ? require(c) : load(c)
         end
       end
-
-      Spree::Order.register_update_hook(:persist_bulk_discount_totals)
     end
 
-    initializer 'spree.promo.register.promotion.calculators' do |app|
-      app.config.spree.calculators.promotion_actions_create_adjustments << Spree::Calculator::QuantityTieredPercent
+    initializer 'spree.bulk_discounts.register.calculators' do |app|
+      app.config.spree.calculators.add_class('bulk_discounts')
+      app.config.spree.calculators.bulk_discounts = [
+          Spree::Calculator::TieredQuantityPercent
+      ]
     end
 
     config.to_prepare &method(:activate).to_proc

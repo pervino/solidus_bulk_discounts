@@ -1,0 +1,5 @@
+<!-- insert_bottom "[data-hook='admin_product_sub_tabs']" -->
+
+<% if can? :admin, Spree::BulkDiscount %>
+  <%= tab :bulk_discounts %>
+<% end %>

@@ -14,5 +14,6 @@
 
   <div class="clear"></div>
 
-  <%= render 'spree/admin/shared/calculator_fields', :f => f %>
+  <%= render partial: 'spree/admin/bulk_discounts/calculators_with_custom_fields',
+             locals: {calculators: Spree::BulkDiscount.calculators, bulk_discount: f.object, param_prefix: 'bulk_discount'} %>
 </div>
