@@ -1,9 +1,17 @@
 ---
 en:
   spree:
+    bulk_discounts: "Bulk Discount"
+    bulk_discount: "Bulk Discount"
+    listing_bulk_discounts: "Bulk Discounts"
+    new_bulk_discount: "New Bulk Discount"
+    editing_bulk_discount: "Editing Bulk Discount"
+    back_to_bulk_discounts_list: "Back to Bulk Discounts"
     admin:
       bulk_discounts:
         bulk_discount: "Bulk Discount"
         errors:
           not_found: "Bulk Discount was not found"
           please_try_again: "Please try again"
+      tab:
+        bulk_discounts: "Bulk Discounts"
