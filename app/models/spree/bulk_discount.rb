@@ -41,6 +41,10 @@ module Spree
       calculator.compute(calculable) * -1
     end
 
+    def tiers
+      calculator.preferred_tiers
+    end
+
     private
 
     def ensure_action_has_calculator
