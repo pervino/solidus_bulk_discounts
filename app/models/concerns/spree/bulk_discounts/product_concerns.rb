@@ -3,7 +3,7 @@ module Spree
     extend ActiveSupport::Concern
 
     included do
-      belongs_to :bulk_discount, class_name: Spree::BulkDiscount
+      belongs_to :bulk_discount
     end
   end
 end

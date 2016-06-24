@@ -2,8 +2,11 @@ module Spree
   class BulkDiscount < Spree::Base
     acts_as_paranoid
 
+    has_many :products
+
     before_validation :ensure_action_has_calculator
     before_destroy :deals_with_adjustments_for_deleted_source
+    after_touch :touch_all_products
 
     include Spree::CalculatedAdjustments
     include Spree::AdjustmentSource
@@ -46,6 +49,10 @@ module Spree
     end
 
     private
+
+    def touch_all_products
+      products.update_all(updated_at: Time.current)
+    end
 
     def ensure_action_has_calculator
       return if calculator
