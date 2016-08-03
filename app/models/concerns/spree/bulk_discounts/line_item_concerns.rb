@@ -9,6 +9,11 @@ module Spree
     end
 
     module InstanceMethods
+
+      def discounted_amount
+        super + bulk_discount_total
+      end
+
       private
 
       def update_bulk_discount
