@@ -2,40 +2,31 @@ module Spree
   class BulkDiscount < Spree::Base
     acts_as_paranoid
 
-    has_many :products
-
-    before_validation :ensure_action_has_calculator
+    # Need to deal with adjustments before calculator is destroyed.
     before_destroy :deals_with_adjustments_for_deleted_source
-    after_touch :touch_all_products
 
     include Spree::CalculatedAdjustments
     include Spree::AdjustmentSource
 
+    has_many :products
+    has_many :adjustments, as: :source
+
+    after_touch :touch_products
+
+    before_validation :ensure_action_has_calculator
     validates :name, presence: true
 
-    # Deletes all bulk discount adjustments, then applies all applicable
-    # discounts to relevant items
-    def self.adjust(adjustable)
-      return unless adjustable.instance_of?(Spree::LineItem)
-
-      if adjustable.product.bulk_discount.present?
-        Spree::Adjustment.where(adjustable: adjustable).bulk_discount.destroy_all # using destroy_all to ensure adjustment destroy callback fires.
-        adjustable.variant.product.bulk_discount.adjust(adjustable)
-      end
-    end
 
     def adjust(item)
       amount = compute_amount(item)
       return if amount == 0
 
-      Spree::Adjustment.create!(
+      item.adjustments.create!(
+          source: self,
           amount: amount,
           order_id: item.order_id,
-          adjustable: item,
-          source: self,
           label: create_label(amount)
       )
-      true
     end
 
     # Ensure a negative amount which does not exceed the sum of the order's
@@ -50,7 +41,7 @@ module Spree
 
     private
 
-    def touch_all_products
+    def touch_products
       products.update_all(updated_at: Time.current)
     end
 
@@ -60,9 +51,7 @@ module Spree
     end
 
     def create_label(amount)
-      label = ""
-      label << "Bulk Discount"
-      label
+      "Bulk Discount"
     end
   end
 end

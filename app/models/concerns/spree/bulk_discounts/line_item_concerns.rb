@@ -17,7 +17,7 @@ module Spree
       private
 
       def update_bulk_discount
-        Spree::BulkDiscount.adjust(self)
+        Spree::BulkDiscount::ItemAdjuster.new(self).adjust!
       end
     end
   end

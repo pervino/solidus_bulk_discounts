@@ -1,6 +1,5 @@
 FactoryGirl.define do
-  factory :default_bulk_discount_calculator, class: Spree::Calculator::QuantityTieredPercent do
-    # % off is 0 - 100. Eg. 50 = 50% 
+  factory :default_bulk_discount_calculator, class: Spree::Calculator::TieredQuantityPercent do
     preferred_tiers { {12 => 10, 24 => 20} }
   end
 
