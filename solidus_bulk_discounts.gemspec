@@ -22,7 +22,7 @@ Gem::Specification.new do |s|
   s.add_dependency "solidus_api", "~> 2.0"
   s.add_dependency "solidus_backend", "~> 2.0"
 
-  s.add_development_dependency "rspec-rails", "~> 3.2"
+  s.add_development_dependency "rspec-rails"
   s.add_development_dependency "rspec-activemodel-mocks"
   s.add_development_dependency "simplecov"
   s.add_development_dependency "sqlite3"
