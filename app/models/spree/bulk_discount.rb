@@ -1,6 +1,10 @@
 module Spree
   class BulkDiscount < Spree::Base
-    acts_as_paranoid
+    include Discard::Model
+
+    self.discard_column = :deleted_at
+    default_scope -> { kept }
+
 
     # Need to deal with adjustments before calculator is destroyed.
     before_destroy :deals_with_adjustments_for_deleted_source
