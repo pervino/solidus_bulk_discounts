@@ -18,9 +18,9 @@ Gem::Specification.new do |s|
   s.requirements << "none"
 
   s.add_dependency "pg"
-  s.add_dependency "solidus_core", "~> 2.0"
-  s.add_dependency "solidus_api", "~> 2.0"
-  s.add_dependency "solidus_backend", "~> 2.0"
+  s.add_dependency "solidus_core", ['> 2.0', '<4']
+  s.add_dependency "solidus_api", ['> 2.0', '<4']
+  s.add_dependency "solidus_backend", ['> 2.0', '<4']
 
   s.add_development_dependency "rspec-rails"
   s.add_development_dependency "rspec-activemodel-mocks"
