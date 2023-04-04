@@ -1,11 +1,11 @@
 <div data-hook="admin_tax_rate_form_fields">
   <div class="alpha twelve columns">
     <fieldset data-hook="tax_rates" class=" no-border-bottom">
-      <legend align="center"><%= Spree.t(:general_settings) %></legend>
+      <legend align="center"><%= I18n.t("spree.general_settings") %></legend>
 
       <div class="alpha nine columns">
         <div data-hook="name" class="field">
-          <%= f.label :name, Spree.t(:name) %>
+          <%= f.label :name, I18n.t("spree.name") %>
           <%= f.text_field :name, :class => 'fullwidth' %>
         </div>
       </div>
