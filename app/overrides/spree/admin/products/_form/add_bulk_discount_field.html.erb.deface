@@ -2,6 +2,6 @@
 
 <%= f.field_container :bulk_discount do %>
     <%= f.label :bulk_discount, "Bulk Discount" %>
-    <%= f.collection_select(:bulk_discount_id, Spree::BulkDiscount.all, :id, :name, {:include_blank => Spree.t('match_choices.none')}, {:class => 'select2'}) %>
+    <%= f.collection_select(:bulk_discount_id, Spree::BulkDiscount.all, :id, :name, {:include_blank => I18n.t('spree.match_choices.none')}, {:class => 'select2'}) %>
     <%= f.error_message_on :bulk_discount %>
 <% end %>

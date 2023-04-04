@@ -19,7 +19,7 @@ module Spree
     validate :preferred_tiers_content
 
     def self.description
-      Spree.t(:quantity_tiered_percent)
+      I18n.t("spree.quantity_tiered_percent")
     end
 
     def compute(object)
