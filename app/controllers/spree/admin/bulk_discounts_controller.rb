@@ -6,7 +6,7 @@ module Spree
       private
 
       def load_calculators
-        @calculators = BulkDiscount.calculators.sort_by(&:name)
+        @calculators = Rails.application.config.spree.calculators.bulk_discounts.sort_by(&:name)
       end
     end
   end
