@@ -1,9 +1,6 @@
-<%= label_tag "#{prefix}[calculator_attributes][preferred_base_percent]",
-              I18n.t("spree.base_percent") %>
-<%= preference_field_tag(
-        "#{prefix}[calculator_attributes][preferred_base_percent]",
-        calculator.preferred_base_percent,
-        type: calculator.preference_type(:base_percent)) %>
+<%= render "spree/admin/shared/preference_fields/#{calculator.preference_type(:base_percent)}",
+  name: "#{prefix}[calculator_attributes][preferred_base_percent]",
+  value: calculator.preferred_base_percent, label: I18n.t("spree.base_percent") %>
 
 <%= label_tag nil, I18n.t("spree.tiers") %>
 <%= content_tag :div, nil, class: "js-tiers-quantity", data: {
