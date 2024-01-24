@@ -15,3 +15,4 @@ en:
           please_try_again: "Please try again"
       tab:
         bulk_discounts: "Bulk Discounts"
+    quantity_tiered_percent: "Quantity Tiered Percent"

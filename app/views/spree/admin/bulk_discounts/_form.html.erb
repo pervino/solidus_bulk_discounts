@@ -21,5 +21,5 @@
   <div class="clear"></div>
 
   <%= render partial: 'spree/admin/bulk_discounts/calculators_with_custom_fields',
-      locals: { calculators: Spree::BulkDiscount.calculators, bulk_discount: f.object, param_prefix: 'bulk_discount' } %>
+      locals: { calculators: Rails.application.config.spree.calculators.bulk_discounts.sort_by(&:name), bulk_discount: f.object, param_prefix: 'bulk_discount' } %>
 </div>
