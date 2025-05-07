@@ -15,5 +15,7 @@ module Spree
         source_type == 'Spree::BulkDiscount'
       end
     end
+
+    Spree::Adjustment.include self
   end
 end

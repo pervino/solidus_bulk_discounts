@@ -1,1 +1,0 @@
-Spree::Order.include Spree::BulkDiscounts::OrderConcerns

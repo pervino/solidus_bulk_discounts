@@ -20,5 +20,7 @@ module Spree
         Spree::BulkDiscount::ItemAdjuster.new(self).adjust!
       end
     end
+
+    Spree::LineItem.include self
   end
 end

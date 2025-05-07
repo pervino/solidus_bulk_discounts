@@ -1,1 +1,0 @@
-Spree::LineItem.include Spree::BulkDiscounts::LineItemConcerns

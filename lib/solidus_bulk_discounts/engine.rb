@@ -23,10 +23,12 @@ module SolidusBulkDiscounts
     end
 
     initializer 'spree.bulk_discounts.register.calculators' do |app|
-      app.config.spree.calculators.singleton_class.add_class_set('bulk_discounts')
-      app.config.spree.calculators.bulk_discounts = [
-          Spree::Calculator::TieredQuantityPercent
-      ]
+      app.reloader.to_prepare do
+        app.config.spree.calculators.singleton_class.add_class_set('bulk_discounts')
+        app.config.spree.calculators.bulk_discounts = [
+            Spree::Calculator::TieredQuantityPercent
+        ]
+      end
     end
 
     config.to_prepare &method(:activate).to_proc

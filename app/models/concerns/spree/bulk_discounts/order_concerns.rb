@@ -5,5 +5,7 @@ module Spree
     included do
       money_methods :bulk_discount_total
     end
+
+    Spree::Product.include self
   end
 end
